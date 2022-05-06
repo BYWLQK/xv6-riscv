@@ -1,0 +1,1 @@
+pid = wait((int *)0);

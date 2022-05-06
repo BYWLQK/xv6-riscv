@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++ - 生成和调试活动文件",
+            // type 告诉 vscode 编译器的类型，使用 gcc 编译器族的是 cppdgb
+            // 这个是规定的，不是随便写，比如 msvc 编译器就是 cppvsdbg 。
+            "type": "cppdbg",
+            //执行当前文件。
+            "request": "launch",
+            // program 这个是你的可执行程序位置，这里可以根据自己的 tasks.json 生成
+            // 程序的位置自定义修改。
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            // ${xxxx} 是 vscode 内置的变量，可以方便获取到需要的路径或者文件名,
+            // 这里列举一部分
+            // ${workspaceFolder} : 表示当前 workspace 文件夹路径，也即 /home/Coding/Test
+			// ${workspaceRootFolderName} : 表示 workspace 的文件夹名，也即 Test
+			// ${file} : 文件自身的绝对路径，也即 /home/Coding/Test/.vscode/tasks.json
+			// ${relativeFile} : 文件在 workspace 中的路径，也即 .vscode/tasks.json
+			// ${fileBasenameNoExtension} : 当前文件的文件名，不带后缀，也即 tasks
+			// ${fileBasename} : 当前文件的文件名，tasks.json
+			// ${fileDirname} : 文件所在的文件夹路径，也即 /home/Coding/Test/.vscode
+			// ${fileExtname} : 当前文件的后缀，也即 .json
+			// ${lineNumber} : 当前文件光标所在的行号
+			// ${env:PATH} : 系统中的环境变量
+            "args": [],
+            // 选为 true 则会在打开控制台后停滞，暂时不执行程序，一般选 false 。
+            "stopAtEntry": false,
+            //当前执行程序的路径
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // preLaunchTask 表示在 执行调试前 要完成的任务。
+            // 比如这里 要完成 “C/C++: g++ 生成活动文件” 这个 tasks 任务（重新生成程序）
+            // 该名称是 tasks.json 中 label 对应的名称，也就是 task 的名称。
+            // task 的名字，一定要跟 tasks.json 中 label 标签一致。
+            "preLaunchTask": "C/C++: g++ 生成活动文件",
+            // 调试器的路径
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}

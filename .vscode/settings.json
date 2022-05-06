@@ -1,0 +1,15 @@
+{
+    "c-cpp-compile-run.run-in-external-terminal": true,
+    "code-runner.runInTerminal": true,
+    "files.associations": {
+        "riscv.h": "c",
+        "types.h": "c",
+        "date.h": "c",
+        "defs.h": "c",
+        "param.h": "c",
+        "memlayout.h": "c",
+        "spinlock.h": "c",
+        "proc.h": "c",
+        "new": "c"
+    }
+}
